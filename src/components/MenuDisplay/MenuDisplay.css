@@ -1,0 +1,15 @@
+.menu-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 2rem 0;
+  }
+  
+  .menu-display-item {
+    width: 250px;
+    border: 1px solid #333;
+    padding: 1rem;
+    margin: 0.5rem;
+    text-align: center;
+  }
+  

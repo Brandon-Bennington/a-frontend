@@ -1,0 +1,15 @@
+.menu-item-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+  }
+  
+  .menu-item-form input,
+  .menu-item-form textarea,
+  .menu-item-form select {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  

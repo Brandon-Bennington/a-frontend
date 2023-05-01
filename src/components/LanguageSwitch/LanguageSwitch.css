@@ -1,0 +1,12 @@
+.language-switch {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  
+  .language-switch button {
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+  }
+  
