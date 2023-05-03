@@ -1,0 +1,12 @@
+/* CustomerPage.css */
+
+.CustomerPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .CustomerPage > * {
+    margin: 16px 0;
+  }
+  
