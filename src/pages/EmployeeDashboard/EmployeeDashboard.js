@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './EmployeeDashboard.css';
+import MenuManagement from './MenuManagement';
+
 
 function EmployeeDashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -11,7 +13,7 @@ function EmployeeDashboard() {
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:5000/register`, registerForm);
+      const response = await axios.post(`http://localhost:5001/api/users/register`, registerForm);
       if (response.status === 201) {
         setError(null);
         setLoginForm({ username: registerForm.username, password: registerForm.password });
@@ -25,7 +27,7 @@ function EmployeeDashboard() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:5000/login`, loginForm);
+      const response = await axios.post(`http://localhost:5001/api/users/login`, loginForm);
       if (response.status === 200) {
         setError(null);
         setLoggedIn(true);
@@ -43,12 +45,12 @@ function EmployeeDashboard() {
     setLoginForm({ ...loginForm, [e.target.id]: e.target.value });
   };
 
-  const menuManagementInterface = (
-    <div>
-      <h2>Menu Management</h2>
-      {/* Add options to add, edit, delete, and toggle visibility of menu items */}
-    </div>
-  );
+const menuManagementInterface = (
+  <div>
+    <h2>Menu Management</h2>
+    <MenuManagement />
+  </div>
+);
 
   return (
     <div className="container">
@@ -82,32 +84,7 @@ function EmployeeDashboard() {
                 Register
               </button>
             </form>
-          </div>
-          <div className="col-md-6">
-            <h2 className="text-center">Login</h2>
-            <form onSubmit={handleLoginSubmit} className="p-3">
-              <div className="form-group">
-                <label htmlFor="username">Username</label>
-                <input
-                  type="text"
-                  id="username"
-                  value={loginForm.username}
-                  onChange={handleLoginInputChange}
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password"
-              value={loginForm.password}
-              onChange={handleLoginInputChange}
-              className="form-control"
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
-        </form>
+      
       </div>
     </div>
   ) : (
