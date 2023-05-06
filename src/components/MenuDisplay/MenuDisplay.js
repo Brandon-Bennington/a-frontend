@@ -8,7 +8,7 @@ const MenuDisplay = ({ language }) => {
   useEffect(() => {
     // Fetch menu items from the backend and set the state
     // Replace the URL with the URL of your backend
-    fetch('http://localhost:5001/menu-items')
+    fetch('http://localhost:5001/api/menuItems')
       .then((response) => response.json())
       .then((data) => setMenuItems(data));
   }, []);
